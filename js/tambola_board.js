@@ -86,7 +86,7 @@ function displayTambolaGrid(tambolaBoardArray) {
 }
 // displayTambolaTable(tambolaBoardArray);
 displayTambolaGrid(tambolaBoardArray);
-document.querySelector('.js-play-button').addEventListener('click', () => {
+document.getElementById('next-button').addEventListener('click', () => {
 
     if (totalNosGenerated === arraySize) {
         generatedNumberText.innerHTML = 'All Values are Generated!!';
@@ -98,7 +98,7 @@ document.querySelector('.js-play-button').addEventListener('click', () => {
     //displayTambolaTable(tambolaBoardArray);
     displayTambolaGrid(tambolaBoardArray);
 });
-document.querySelector('.js-reset-button').addEventListener('click', () => {
+document.getElementById('reset-button').addEventListener('click', () => {
     resetTambolaBoard();
     generatedNumberText.innerHTML = 'Tambola Board has been reset!'
     // displayTambolaTable(tambolaBoardArray);
