@@ -35,14 +35,15 @@
             text-decoration: line-through;
             text-decoration-color: red;
             color: black;
+            background-color: rgb(148, 148, 197);
         }
     </style>
 </head>
 <body>
     <div class="tambola-board-conatiner">
         <div class="tambola-number-generator">
-            <button class="generate-number js-play-button">Play</button>
-            <button class="reset-button js-reset-button">Reset</button>
+            <button class="generate-number js-play-button" id="next-button">Play</button>
+            <button class="reset-button js-reset-button" id="reset-button">Reset</button>
             <p class="generated-number"></p>
         </div>
         <div class="tambola-board-grid">

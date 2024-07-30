@@ -1,15 +1,19 @@
 const generatedNumberText = document.querySelector('.generated-number');
 
-let totalNosGenerated = JSON.parse(localStorage.getItem('count')) || 0;
-const min = 1;
+// let totalNosGenerated = JSON.parse(localStorage.getItem('count')) || 0;
 const arraySize = 90;
 //const cols = 10;
 function initializeArray() {
     return new Array(arraySize).fill(false);
 }
 
-function saveTambolaBoard(tambolaBoardArray) {
+function initializeNumbersArray(){
+    const numbers=Array.from({length:arraySize},(_,i)=>i+1);
+    return numbers;
+}
+function saveTambolaBoard(tambolaBoardArray,numbers) {
     localStorage.setItem('tamobolaBoardArray', JSON.stringify(tambolaBoardArray));
+    localStorage.setItem('numbersArray',JSON.stringify(numbers));
 }
 
 function getTambolaBoard() {
@@ -21,49 +25,37 @@ function getTambolaBoard() {
         return initializeArray();
     }
 }
+function getNumbersArray(){
+    const numbersArrayString = localStorage.getItem('numbersArray');
+    if (numbersArrayString) {
+        return JSON.parse(numbersArrayString);
+    }
+    else {
+        return initializeNumbersArray();
+    }
+}
 
 let tambolaBoardArray = getTambolaBoard();
-function generateNewNumber(min, max) {
+let numbers = getNumbersArray();
+function generateNewNumber(numbers) {
     let res = 0;
-    do {
-        res = Math.floor(Math.random() * (max - min + 1)) + 1;
-    }
-    while (tambolaBoardArray[res - 1] != false);
+    let index=Math.floor(Math.random() * numbers.length);
+    [numbers[numbers.length-1],numbers[index]]=[numbers[index],numbers[numbers.length-1]];
+    res=numbers.pop();
+    console.log("Number picked: "+res)
+    console.log("Numbers left:"+numbers.length)
     tambolaBoardArray[res - 1] = true;
-    saveTambolaBoard(tambolaBoardArray);
-    totalNosGenerated = totalNosGenerated + 1;
-    localStorage.setItem('count', JSON.stringify(totalNosGenerated));
+    saveTambolaBoard(tambolaBoardArray,numbers);
+
     return res;
 }
 function resetTambolaBoard() {
     localStorage.removeItem('tamobolaBoardArray');
+    localStorage.removeItem('numbersArray');
     tambolaBoardArray = initializeArray();
-    totalNosGenerated = 0;
-    localStorage.setItem('count', JSON.stringify(totalNosGenerated));
+    numbers = initializeNumbersArray();
 }
-// function displayTambolaTable(tambolaBoardArray) {
-//     const table = document.querySelector('.tambola-board')
-//     table.innerHTML = '';
-//     let tr;
-//     for (let i = 0; i < tambolaBoardArray.length; i++) {
-//         if (i % cols === 0) {
-//             tr = document.createElement('tr');
-//             table.appendChild(tr);
-//         }
-//         const td = document.createElement('td');
-//         td.textContent = i + 1;
-//         td.style.cursor = 'pointer';
-//         if (tambolaBoardArray[i] === true) {
-//             td.classList.add('filled');
-//         }
-//         else {
-//             td.classList.add('unfilled');
-//         }
 
-//         tr.appendChild(td);
-//     }
-//     //tableContainer.appendChild(table);
-// }
 function displayTambolaGrid(tambolaBoardArray) {
     const gridContainer = document.querySelector('.tambola-board-grid');
     gridContainer.innerHTML = '';
@@ -88,19 +80,19 @@ function displayTambolaGrid(tambolaBoardArray) {
 displayTambolaGrid(tambolaBoardArray);
 document.getElementById('next-button').addEventListener('click', () => {
 
-    if (totalNosGenerated === arraySize) {
+    // const numbersArrayString = localStorage.getItem('numbersArray');
+    // numbers=JSON.parse(numbersArrayString);
+    if (numbers.length===0) {
         generatedNumberText.innerHTML = 'All Values are Generated!!';
     }
     else {
-        var generatedNumberValue = generateNewNumber(min, arraySize);
+        var generatedNumberValue = generateNewNumber(numbers);
         generatedNumberText.innerHTML = generatedNumberValue;
     }
-    //displayTambolaTable(tambolaBoardArray);
     displayTambolaGrid(tambolaBoardArray);
 });
 document.getElementById('reset-button').addEventListener('click', () => {
     resetTambolaBoard();
     generatedNumberText.innerHTML = 'Tambola Board has been reset!'
-    // displayTambolaTable(tambolaBoardArray);
     displayTambolaGrid(tambolaBoardArray);
 });
