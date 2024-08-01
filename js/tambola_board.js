@@ -78,7 +78,7 @@ function displayTambolaGrid(tambolaBoardArray) {
 }
 // displayTambolaTable(tambolaBoardArray);
 displayTambolaGrid(tambolaBoardArray);
-document.getElementById('next-button').addEventListener('click', () => {
+document.getElementById('button-next').addEventListener('click', () => {
 
     // const numbersArrayString = localStorage.getItem('numbersArray');
     // numbers=JSON.parse(numbersArrayString);
@@ -91,7 +91,7 @@ document.getElementById('next-button').addEventListener('click', () => {
     }
     displayTambolaGrid(tambolaBoardArray);
 });
-document.getElementById('reset-button').addEventListener('click', () => {
+document.getElementById('button-reset').addEventListener('click', () => {
     resetTambolaBoard();
     generatedNumberText.innerHTML = 'Tambola Board has been reset!'
     displayTambolaGrid(tambolaBoardArray);

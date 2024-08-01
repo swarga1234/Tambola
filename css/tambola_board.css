@@ -1,1 +1,179 @@
-Hello World!
+@font-face {
+    font-family: 'Rocher';
+    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+
+body{
+    margin: 0 auto;
+    /* width: 100vh; */
+    height: 100vh;
+    font-family: Helvetica Arial sans-serif;
+    background-image: url('../images/madtambola.png');
+    /* background-size: contain; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+header > .header-band {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid; */
+}
+
+header > .header-band > .header-left {
+    width: 120px;
+}
+
+header > .header-band > .header-center > .heading {
+    margin-top: 2px;
+    font-size: 60px;
+    font-family: 'Rocher';
+    padding-left: 30px;
+    text-align: center;
+    /* font-palette: --Mint; */
+}
+
+header > .header-band > .header-right > .logo {
+    display: flex;
+    justify-content: flex-end;
+    width: 150px;
+    padding-right: 30px;
+    padding-top: 10px;
+    margin-left: auto;
+}
+
+/* @font-palette-values --Mint {
+  font-family: Rocher;
+  base-palette: 7;
+} */
+
+.container {
+    display: table;
+    width: 50%;
+    border-collapse: collapse;
+    margin: auto;
+    text-align: center;
+}
+
+.container > .section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding-top: 30px; */
+}
+
+.container > .section-container > .controls {
+    padding: 1px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2px;
+}
+
+.container > .section-container > .controls > .generated-number {
+    font-family: 'Rocher';
+    font-size: 35px;
+}
+
+.container > .section-container > .controls > .btn {
+    font-size: 40px;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800 !important;
+}
+
+.container > .section-container > .controls > .btn:hover {
+    color: #fff;
+    text-decoration: none;
+    background: none;
+    text-shadow: 6px 4px 15px #3C4142;
+}
+
+.container > .section-container > .controls > .btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.container > .section-container > .controls > .btn:active {
+    outline: none;
+    box-shadow: none;
+}
+
+
+.container > .section-container > .tambola-board-container {
+    display: flex;
+    width: 100%;
+}
+
+.container > .section-container > .tambola-board-container > .tambola-board-grid {
+    display: grid;
+    grid-gap:2px;
+    padding: 3px;
+    justify-content: center;
+    border: 2px solid black;
+    background-color: #ffffff;
+    grid-template-columns: repeat(10,1fr);
+    height: fit-content;
+    width: 100%;
+}
+
+.tambola-board-grid > div {
+    display: flex;
+    line-height: 50px;
+    font-weight: 800;
+    color: #ffffff;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+}
+
+.tambola-board-grid > .unfilled {
+    background-color: #f39454;
+}
+
+.tambola-board-grid > .filled {
+    background-color: red;
+}
+
+
+
+
+/* .container > .right {
+    width: 40%;
+    background-color: rgb(139, 139, 225);
+}
+
+.container > .right > .section-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container > .right >  .section-container > .number-viewer-container {
+    border: 3px solid;
+}
+
+.number-viewer-container > div {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.number-viewer-container > .outer-ring {
+    width: 90px;
+    height: 90px;
+    background-color: red;
+}
+
+.number-viewer-container > .inner-ring {
+    width: 60px;
+    height: 60px;
+    background-color: yellow;
+} */
