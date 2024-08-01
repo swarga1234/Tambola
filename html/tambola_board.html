@@ -4,53 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambola Board</title>
-     <style>
-        /* .tambola-board {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        td, th {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-        } */
-        .tambola-board-grid{
-            display: grid;
-            grid-gap: 2px;
-            padding: 3px;
-            grid-template-columns: repeat(10,1fr);
-        }
-        .grid-element{
-            border: 1px, solid black;
-            padding: 8px;
-            text-align: center;
-            position: relative;
-            background-color: antiquewhite;
-            color: black;
-            line-height: 50px;
-
-        }
-        .filled{
-            text-decoration: line-through;
-            text-decoration-color: red;
-            color: black;
-            background-color: rgb(148, 148, 197);
-        }
-    </style>
+    <title>GPB&W MAD Tambola 2024</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/tambola_board.css" />
 </head>
 <body>
-    <div class="tambola-board-conatiner">
-        <div class="tambola-number-generator">
-            <button class="generate-number js-play-button" id="next-button">Play</button>
-            <button class="reset-button js-reset-button" id="reset-button">Reset</button>
-            <p class="generated-number"></p>
+    <header>
+        <div class="header-band">
+            <div class="header-left"></div>
+            <div class="header-center">
+                <h1 class="heading">MAD TAMBOLA</h1>
+            </div>
+            <div class="header-right">
+                <img class="logo" src="../images/MAD_Logo.png" alt="MAD LOGO" />
+            </div>
         </div>
-        <div class="tambola-board-grid">
-            <!-- <table class="tambola-board">
-            </table> -->
+    </header>
+    <main class="container">
+        <div class="section-container">
+            <div class="controls">
+                <button type="button" id="button-next" class="button-next btn btn-outline-primary">⏭️</button>
+                <p class="generated-number"></p>
+                <button type="button" id="button-reset" class="button-reset btn btn-outline-danger">🔄</button>
+            </div>
+            <div class="tambola-board-container">
+                <div class="tambola-board-grid"></div>
+            </div>
         </div>
-    </div>
+    </main>
+    <!-- <footer>
+        <div class="footer-band">
+            <div class="footer-left"></div>
+            <div class="footer-center">
+                <h1 class="heading">developed</h1>
+            </div>
+            <div class="footer-right">
+                <img class="logo" src="../images/MAD_Logo.png" alt="MAD LOGO" />
+            </div>
+        </div>
+    </footer> -->
     <script src="../js/tambola_board.js"></script>
+
 </body>
 </html>
